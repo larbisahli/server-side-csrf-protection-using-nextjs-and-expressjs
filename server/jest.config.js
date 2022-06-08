@@ -1,8 +1,8 @@
-import type { Config } from '@jest/types';
-
-const config: Config.InitialOptions = {
-  verbose: true,
-  testPathIgnorePatterns: ['.d.ts', '.ts'],
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+module.exports = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  // testPathIgnorePatterns: ['.d.ts', '.ts'],
   moduleNameMapper: {
     '@graphql/(.*)': '<rootDir>/dist/graphql/$1',
     '@interfaces/(.*)': '<rootDir>/dist/interfaces/$1',
@@ -11,4 +11,3 @@ const config: Config.InitialOptions = {
     '@utils/(.*)': '<rootDir>/dist/utils/$1',
   },
 };
-export default config;

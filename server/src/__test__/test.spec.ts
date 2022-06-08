@@ -7,12 +7,12 @@ describe('Graph API', () => {
     done();
   });
 
-  it('Login in user', (done) => {
+  it('staff form', (done) => {
     request(server)
       .post('/graphql')
       .send({
         query: `
-        mutation { staffLogin(email: "larbi@gmail.com"  password: "1905" remember_me: false){success} }
+        mutation { createStaff(first_name: "larbi", last_name: "sahli", email: "larbisahli1905@gmail.com"  password: "password"){first_name} }
       `,
       })
       .end((err, res) => {
@@ -20,7 +20,7 @@ describe('Graph API', () => {
           return done(err);
         }
         expect(JSON.parse(res.text)).toMatchObject({
-          data: { staffLogin: { success: true } },
+          data: { createStaff: null },
         });
         done();
       });

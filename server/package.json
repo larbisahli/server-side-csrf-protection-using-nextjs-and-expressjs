@@ -10,8 +10,7 @@
     "start-dev": "cross-env NODE_ENV=development node ./dist/server.js",
     "nodemon": "cross-env NODE_ENV=development nodemon ./dist/server.js",
     "dev": "concurrently \"yarn:watch\" \"yarn:nodemon\"",
-    "test": "concurrently \"yarn:watch\" \"yarn:test-watch\"",
-    "test-watch": "jest --watch",
+    "test": "jest",
     "prettier": "prettier --write \"**/*.{ts,json,yml}\"",
     "prepare": "husky install"
   },
@@ -19,7 +18,6 @@
     "@graphql": "dist/graphql",
     "@interfaces": "dist/interfaces",
     "@lib": "dist/lib",
-    "@routes": "dist/routes",
     "@utils": "dist/utils"
   },
   "dependencies": {
@@ -60,6 +58,7 @@
     "nodemon": "^2.0.15",
     "prettier": "^2.4.1",
     "supertest": "^6.2.3",
+    "ts-jest": "^28.0.4",
     "ts-node": "^10.8.0",
     "typescript": "^4.5.2"
   }
