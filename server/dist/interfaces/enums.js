@@ -15,8 +15,6 @@ var ErrorNames;
 })(ErrorNames = exports.ErrorNames || (exports.ErrorNames = {}));
 var CookieNames;
 (function (CookieNames) {
-    CookieNames["STAFF_TOKEN_NAME"] = "GALA_STAFF_TOKEN";
-    CookieNames["CUSTOMER_SESSION_NAME"] = "GALA_SESSION";
     CookieNames["XSRF_TOKEN"] = "XSRF_TOKEN";
 })(CookieNames = exports.CookieNames || (exports.CookieNames = {}));
 //# sourceMappingURL=enums.js.map

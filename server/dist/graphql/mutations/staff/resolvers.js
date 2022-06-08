@@ -11,9 +11,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 class Staff {
     constructor() {
-        this.createStaff = (parent, values, { req }) => __awaiter(this, void 0, void 0, function* () {
+        this.createStaff = (parent, values, { req, csrf }) => __awaiter(this, void 0, void 0, function* () {
+            // CSRF Validation, this will throw an error if the token is not valid.
+            csrf === null || csrf === void 0 ? void 0 : csrf.verify(req);
+            console.log('values :>', values);
             // Your database logic
-            return {};
+            // ....
+            return values;
         });
     }
 }

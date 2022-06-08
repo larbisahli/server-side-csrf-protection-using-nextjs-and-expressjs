@@ -5,14 +5,6 @@ import { ErrorType } from '@interfaces/index';
 
 const tokens = new Tokens();
 
-export function generate() {
-  // generate & set new secret
-  const secret = tokens.secretSync();
-  // create new token
-  const token = tokens.create(secret);
-  return { token, secret };
-}
-
 export function verify(req: Request) {
   const cookies = req.cookies;
   const secret = cookies[CookieNames.XSRF_TOKEN];

@@ -6,10 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 require("module-alias/register");
 const express_1 = __importDefault(require("express"));
 const cors_1 = __importDefault(require("cors"));
-const index_1 = __importDefault(require("@routes/index"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const express_graphql_1 = require("express-graphql");
-const index_2 = __importDefault(require("@graphql/index"));
+const index_1 = __importDefault(require("@graphql/index"));
 const helmet_1 = __importDefault(require("helmet"));
 const debug_1 = __importDefault(require("debug"));
 const error_handler_1 = require("@utils/error-handler");
@@ -49,11 +48,11 @@ app.use((0, helmet_1.default)({
     contentSecurityPolicy: process.env.NODE_ENV === 'production' ? undefined : false,
 }));
 app.use('/graphql', (0, express_graphql_1.graphqlHTTP)((request, response) => ({
-    schema: index_2.default,
+    schema: index_1.default,
     context: {
         req: request,
         res: response,
-        csrf: { generate: csrf_1.generate, verify: csrf_1.verify },
+        csrf: { verify: csrf_1.verify },
         ip: request.headers['x-forwarded-for'],
     },
     graphiql: !PRODUCTION_ENV,
@@ -68,7 +67,6 @@ app.use('/graphql', (0, express_graphql_1.graphqlHTTP)((request, response) => ({
         }
     },
 })));
-(0, index_1.default)(app);
 const PORT = 5000;
 const server = app.listen(PORT, function () {
     Debug(`Express Server started on port ${PORT}`);

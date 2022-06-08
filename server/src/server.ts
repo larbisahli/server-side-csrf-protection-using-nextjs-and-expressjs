@@ -1,7 +1,6 @@
 import 'module-alias/register';
 import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
-import mountRoutes from '@routes/index';
 import cookieParser from 'cookie-parser';
 import { graphqlHTTP } from 'express-graphql';
 import schema from '@graphql/index';
@@ -11,7 +10,7 @@ import debug from 'debug';
 
 import { getErrorCode } from '@utils/error-handler';
 import { ErrorNames } from '@interfaces/enums';
-import { generate, verify } from '@lib/csrf';
+import { verify } from '@lib/csrf';
 
 const ENV = process.env;
 const PRODUCTION_ENV = ENV.NODE_ENV === 'production';
@@ -69,7 +68,7 @@ app.use(
     context: {
       req: request,
       res: response,
-      csrf: { generate, verify },
+      csrf: { verify },
       ip: request.headers['x-forwarded-for'],
     },
     graphiql: !PRODUCTION_ENV,
@@ -89,8 +88,6 @@ app.use(
     },
   }))
 );
-
-mountRoutes(app);
 
 const PORT = 5000;
 

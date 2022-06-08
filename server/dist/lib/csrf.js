@@ -3,18 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.verify = exports.generate = void 0;
+exports.verify = void 0;
 const enums_1 = require("@interfaces/enums");
 const csrf_1 = __importDefault(require("csrf"));
 const tokens = new csrf_1.default();
-function generate() {
-    // generate & set new secret
-    const secret = tokens.secretSync();
-    // create new token
-    const token = tokens.create(secret);
-    return { token, secret };
-}
-exports.generate = generate;
 function verify(req) {
     const cookies = req.cookies;
     const secret = cookies[enums_1.CookieNames.XSRF_TOKEN];

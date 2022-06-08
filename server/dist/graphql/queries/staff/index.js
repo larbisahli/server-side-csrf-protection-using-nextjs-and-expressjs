@@ -14,7 +14,7 @@ const staffFields = {
             id: { type: graphql_1.GraphQLID },
         },
         resolve: resolvers.staff,
-    }
+    },
 };
 exports.default = staffFields;
 //# sourceMappingURL=index.js.map

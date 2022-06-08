@@ -1,4 +1,3 @@
-
 // Nullable can be assigned to a value or can be assigned to null.
 export declare type Nullable<T> = T | null;
 
@@ -18,16 +17,14 @@ export declare type Scalars = {
 };
 
 export type SSRProps = {
-    csrfToken?: string | null;
-    csrfError?: string | null;
-    token?: string | null;
-    client?: {
-      staff_id: string;
-    } | null;
-  };
+  csrfToken?: string | null;
+  csrfError?: string | null;
+  token?: string | null;
+  client?: {
+    staff_id: string;
+  } | null;
+};
 
-
-  
 interface SharedValues {
   created_at?: Nullable<Scalars['DateTimeTz']>;
   updated_at?: Nullable<Scalars['DateTimeTz']>;

@@ -10,9 +10,11 @@ export default class Staff {
     // CSRF Validation, this will throw an error if the token is not valid.
     csrf?.verify(req);
 
+    console.log('values :>', values);
+
     // Your database logic
     // ....
 
-    return {};
+    return values;
   };
 }

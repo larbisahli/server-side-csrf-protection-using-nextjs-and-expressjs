@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ErrorNames, CookieNames } from './enums';
+import { ErrorNames } from './enums';
 
 export interface ErrorHandler extends Error {
   code?: string;
@@ -28,7 +28,6 @@ export interface GraphQLContextType {
   req: GraphRequest;
   res: Response;
   csrf: {
-    generate: () => { token: string | null; secret: string | null };
     verify: (req: Request) => void;
   };
   ip: string;

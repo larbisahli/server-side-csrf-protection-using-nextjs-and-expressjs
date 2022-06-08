@@ -18,7 +18,7 @@ const staffFields = {
             password: { type: graphql_1.GraphQLString },
         },
         resolve: resolvers.createStaff,
-    }
+    },
 };
 exports.default = staffFields;
 //# sourceMappingURL=index.js.map
